@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Events</title> 
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+ <link rel="stylesheet" href="css/styles.css" />
+ <link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+<script type="text/javascript">
+                $(document).ready(function() {
+
+                $.getJSON('https://hometownopportunity.com/api/events.php', function(data) {
+                        $.each(data, function(i,item){ 
+			
+			 $.each(item, function(n,item){ 
+                            //    $('body').append('<strong>' + item.id + '</strong>');
+                              //  $('body').append('<strong>' + item.title + '</strong><br/>');
+                               // $('body').append('<br/><span style="font-size: 85%">Posted:' + item.posted + '</span><br/>');
+                               // $('body').append('<p><span style="font-size: 85%">By:' + item.company + '</p><br/>');
+				
+				$('ul#careerList').append('<li><a href="http://139.59.29.123/htownapp/event_details.html?id=' + item.id + '" rel="external">' +
+				//'<img src="pics/' + item.picture + '" class="list-icon"/>' +
+				'<p class="line1">' + item.name + '</p>');
+				//'<p class="line2">Posted :' + item.posted + '<br/>');
+				//'By :' + item.company + '</p></a></li><br/>');
+				
+				
+				});
+                        });
+                });
+            }); 
+        </script>
+</head> 
+
+<body> 
+
+<div data-role="page">
+
+	<div data-role="header" id="header" data-position="fixed">
+		<h1>Events</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" class="content" style="height:100%">	
+		
+<ul id="careerList" class="icon-list"></ul>		
+	</div><!-- /content -->
+
+	<div data-role="footer" class="ui-bar" data-theme="a" data-position="fixed">
+	<!--<a href="events.html" class="ui-btn ui-icon-home ui-btn-icon-left">Events</a>
+	<a href="news.html" class="ui-btn ui-icon-home ui-btn-icon-left">News</a>-->
+	<div align="center">
+<span><a href="index.html" rel="external"><i class="fa fa-suitcase" aria-hidden="true"></i></a></span>
+	
+	<!--<a href="events.html" class="ui-btn ui-icon-home ui-btn-icon-left">Events</a>
+	<a href="news.html" class="ui-btn ui-icon-home ui-btn-icon-left">News</a>-->
+	
+	<span><a href="news.html" rel="external"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a></span>
+	<span><a href="social_links.html" rel="external"><i class="fa fa-list" aria-hidden="true"></i></a></span>
+	<span><a href="events.html" rel="external"><i class="fa fa-calendar" aria-hidden="true"></i></a></span>
+	</div>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+<script src="js/phonegap.js"></script>
+    <script src="js/iscroll.js"></script>
+
+</body>
+</html>
